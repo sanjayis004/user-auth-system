@@ -10,5 +10,10 @@ module.exports = {
     min: 0,
     acquire: 30000,
     idle: 10000
+  },
+  redis:{
+    "PORT": 12035,
+    "HOST": "redis-12035.c3.eu-west-1-2.ec2.cloud.redislabs.com",
+    "PASSWORD":"ca9TgrPFY7PQPDjzbndd9605bNtThoVX",
   }
 };

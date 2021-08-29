@@ -5,9 +5,9 @@ const User = db.user;
 const redis = require('redis');
 const JWTR =  require('jwt-redis').default;
 const redisClient = redis.createClient({
-        "port": 12035,
-        "host": "redis-12035.c3.eu-west-1-2.ec2.cloud.redislabs.com",
-        "password":"ca9TgrPFY7PQPDjzbndd9605bNtThoVX",
+        "port": config.redis.PORT,
+        "host": config.redis.HOST,
+        "password":config.redis.PASSWORD,
         "options":
         {}
     });

@@ -8,9 +8,9 @@ const bcrypt = require("bcryptjs");
 const redis = require('redis');
 const JWTR =  require('jwt-redis').default;
 const redisClient = redis.createClient({
-        "port": 12035,
-        "host": "redis-12035.c3.eu-west-1-2.ec2.cloud.redislabs.com",
-        "password":"ca9TgrPFY7PQPDjzbndd9605bNtThoVX",
+        "port": config.redis.PORT,
+        "host": config.redis.HOST,
+        "password":config.redis.PASSWORD,
         "options":
         {}
     });
@@ -50,9 +50,13 @@ exports.signup = (req, res) => {
       password: bcrypt.hashSync(req.body.password, 8)
     })
       .then(user => {
+        console.log("user cr",user)
         res.status(200).send({
           success:1,
-          message:"user created successfully!"
+          message:"user created successfully!",
+          data:[{
+            id:user.dataValues.id
+          }]
         })
       })
       .catch(err => {
@@ -104,7 +108,7 @@ exports.signin = (req, res) => {
 
       if (!passwordIsValid) {
         return res.status(401).send({
-          accessToken: null,
+          success:0,
           message: "Invalid Password!"
         });
       }
@@ -117,10 +121,14 @@ exports.signin = (req, res) => {
       });
       console.log("token",token)
        return res.status(200).send({
-          id: user.id,
-          name: user.name,
-          contact: user.contact,
-          accessToken: token
+          success:1,
+          data:[{
+            id: user.id,
+            name: user.name,
+            contact: user.contact,
+            accessToken: token  
+          }]
+          
         });
 
       
