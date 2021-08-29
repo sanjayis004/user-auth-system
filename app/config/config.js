@@ -1,8 +1,8 @@
 module.exports = {
-  HOST: "localhost",
-  USER: "root",
-  PASSWORD: "root",
-  DB: "testdb",
+  HOST: "db4free.net",
+  USER: "sanjay12345678",
+  PASSWORD: "sanjay12345678",
+  DB: "sanjaydb12345678",
   dialect: "mysql",
   secret: "the-secret-key-enigma",
   pool: {
