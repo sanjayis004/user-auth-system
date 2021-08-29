@@ -8,9 +8,9 @@ const bcrypt = require("bcryptjs");
 const redis = require('redis');
 const JWTR =  require('jwt-redis').default;
 const redisClient = redis.createClient({
-        "port": 6379,
-        "host": "localhost",
-        "db": 8,
+        "port": 12035,
+        "host": "redis-12035.c3.eu-west-1-2.ec2.cloud.redislabs.com",
+        "password":"ca9TgrPFY7PQPDjzbndd9605bNtThoVX",
         "options":
         {}
     });
